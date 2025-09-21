@@ -9,15 +9,33 @@ from dotenv import load_dotenv
 Json = Union[Dict[str, Any], List[Dict[str, Any]]]
 
 # ---------------- MongoDB ----------------
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
+
 def get_db():
     """
     Initialize and return a MongoDB database connection.
-    Uses .env MONGO_URI or defaults to localhost.
+    Loads MONGO_URI from .env or falls back to localhost.
     """
     load_dotenv()
-    mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017/leadgen")
+
+    mongo_uri = os.getenv("MONGO_URI")
+    if not mongo_uri:
+        # fallback default if env not found
+        mongo_uri = "mongodb://localhost:27017/leadgen"
+        print("[WARN] MONGO_URI not found in .env, using default:", mongo_uri)
+    else:
+        print("[INFO] Using MONGO_URI from .env:", mongo_uri)
+
     client = MongoClient(mongo_uri)
-    db = client.get_default_database() or client["leadgen"]
+
+    # Try to pick the default db from URI, else fallback to "leadgen"
+    db = client.get_default_database()
+    if db is None:
+        db = client["leadgen"]
+        print("[INFO] No default DB in URI, falling back to 'leadgen'")
+
     return db
 
 # platform -> collection
@@ -152,9 +170,9 @@ def process_and_store(
 
 SCHEMA = {
   "url": "",
-  "platform": "twitter",
+  "platform": "reddit",
   "content_type": "",
-  "source": "twitter-scraper",
+  "source": "reddit-scraper",
   "profile": {
     "username": "",
     "full_name": "",
