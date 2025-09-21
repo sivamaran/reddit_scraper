@@ -1,0 +1,52 @@
+{
+  "_id": {
+    "$oid": "68b912a26f5280759a0489c1"
+  },
+  "url": "https://www.instagram.com/official_cyj/",
+  "platform": "instagram",
+  "content_type": "profile",
+  "source": "instagram-scraper",
+  "profile": {
+    "username": "official_cyj",
+    "full_name": "COMFORT YOUR JOURNEY | CYJ",
+    "bio": "\"TRAVEL Where You’ve Never Been\". We create Customize itineraries tailored for voyager Like U, Share Memories as DM. Keep Wandering. Keep Exploring.",
+    "job_title": "None"
+  },
+  "contact": {
+    "emails": [
+      "info@comfortyourjourney.com"
+    ],
+    "phone_numbers": [
+      "8130781111"
+    ],
+    "websites": [],
+    "social_media_handles": {
+      "instagram": "official_cyj",
+      "other": []
+    }
+
+    # in common/db_utils.py
+
+SCHEMA = {
+    "url": None,
+    "platform": None,
+    "content_type": None,
+    "source": None,
+    "profile": {
+        "username": None,
+        "full_name": None,
+        "bio": None,
+        "job_title": None,
+        # You can add more profile-specific fields here
+    },
+    "contact": {
+        "emails": [],
+        "phone_numbers": [],
+        "websites": [],
+        "social_media_handles": {
+            "instagram": None,
+            "other": []
+        }
+    },
+    # You can add other top-level objects here
+}

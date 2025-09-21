@@ -1,0 +1,71 @@
+# -------------------
+# Python
+# -------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environments
+.env
+.venv/
+venv/
+ENV/
+env/
+.env.*
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# -------------------
+# Playwright / Browsers
+# -------------------
+.playwright/
+.playwright-*
+
+# User data directories
+user_data/
+browser_data/
+tmp/
+
+# Screenshots / videos / reports
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.mp4
+*.webm
+*.json
+*.log
+*.tmp
+
+# -------------------
+# VSCode / IDE
+# -------------------
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# -------------------
+# OS
+# -------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------
+# Project specific
+# -------------------
+# Cache or test outputs
+dist/
+build/
+reports/
